@@ -1,0 +1,51 @@
+import java.util.Scanner;
+
+public class Cadena {
+    private int longitud;
+    private String cadena;
+    public Cadena() {
+        this.longitud = 0;
+        this.cadena = "";
+    }
+    public Cadena(String cadena) {
+        this.cadena = cadena;
+        this.longitud = cadena.length();
+    }
+    public int getLongitud() {
+        return this.longitud;
+    }
+    public String getCadena() {
+        return this.cadena;
+    }
+    public void setLongitud(int longitud) {
+        this.longitud = longitud;
+    }
+    public void setCadena(String cadena) {
+        this.cadena = cadena;
+        this.longitud = cadena.length();
+    }
+    public char caracter(int i) {
+        if (i >= 0 && i < this.longitud) {
+            return this.cadena.charAt(i);
+        } else {
+            return '\0';
+        }
+    }
+    public void visualizar() {
+        System.out.println("Cadena: " + this.cadena);
+    }
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese una cadena: ");
+        String inputCadena = scanner.nextLine();
+        Cadena cadena1 = new Cadena(inputCadena);
+        cadena1.visualizar();
+        System.out.println("Longitud: " + cadena1.getLongitud());
+        System.out.print("Ingrese un índice para obtener un carácter: ");
+        int indice = scanner.nextInt();
+        System.out.println("Carácter en el índice " + indice + ": " + cadena1.caracter(indice));
+        
+        scanner.close();
+    }
+}
