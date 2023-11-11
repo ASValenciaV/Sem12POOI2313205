@@ -1,0 +1,46 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+class Empleado {
+    private String nombre;
+    private double salario;
+    public Empleado(String nombre, double salario) {
+        this.nombre = nombre;
+        this.salario = salario;
+    }
+    public double calcularSalario() {
+        return salario;
+    }
+}
+class Supervisor extends Empleado {
+    private ArrayList<String> subordinados;
+    public Supervisor(String nombre, double salario, ArrayList<String> subordinados) {
+        super(nombre, salario);
+        this.subordinados = subordinados;
+    }
+}
+class Director extends Supervisor {
+    private String departamento;
+    public Director(String nombre, double salario, ArrayList<String> subordinados, String departamento) {
+        super(nombre, salario, subordinados);
+        this.departamento = departamento;
+    }
+}
+class Publico extends Empleado {
+    private String tipoAcceso;
+    public Publico(String nombre, double salario, String tipoAcceso) {
+        super(nombre, salario);
+        this.tipoAcceso = tipoAcceso;
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese el nombre del empleado:");
+        String nombreEmpleado = scanner.nextLine();
+        System.out.println("Ingrese el salario del empleado:");
+        double salarioEmpleado = scanner.nextDouble();
+        Empleado empleado = new Empleado(nombreEmpleado, salarioEmpleado);
+        System.out.println("Salario de " + nombreEmpleado + " (Empleado): " + empleado.calcularSalario());
+        scanner.close();
+    }
+}
