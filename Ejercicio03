@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class Empleado {
+    private String nombre;
+    private int numeroEmpleado;
+    
+    public void leerDatos() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingrese el nombre del empleado: ");
+        nombre = scanner.nextLine();
+
+        System.out.print("Ingrese el número de empleado: ");
+        numeroEmpleado = scanner.nextInt();
+    }
+
+    public void verDatos() {
+        System.out.println("Datos del Empleado:");
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Número de Empleado: " + numeroEmpleado);
+    }
+
+    public static void main(String[] args) {
+        Empleado[] empleados = new Empleado[50];
+        for (int i = 0; i < empleados.length; i++) {
+            empleados[i] = new Empleado();
+            empleados[i].leerDatos();
+        }
+        for (Empleado empleado : empleados) {
+            empleado.verDatos();
+            System.out.println("-------------------------------");
+        }
+    }
+}
